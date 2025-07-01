@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>100 Günlük Mektup</title>
   <link rel="stylesheet" href="style.css">
+   <!-- BASİT PAROLA KONTROLÜ -->
+  <script>
+    const pwd = prompt("Bu site özel. Lütfen şifreni gir:");
+    if (pwd !== "SuperGizliParola25092024") {
+      document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Erişim engellendi.</h2>";
+      throw new Error("Yanlış şifre");
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
