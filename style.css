@@ -1,0 +1,136 @@
+/* Genel Stil */
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #fff0f5;
+  font-family: Georgia, serif;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+}
+
+/* Zarflar Grid */
+.envelopes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+/* Zarf Temel Stil */
+.envelope {
+  position: relative;
+  padding-top: 120%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #f9f0f9 url('envelope-closed.png') center/60% no-repeat;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.envelope:hover {
+  transform: scale(1.05);
+}
+.envelope.today {
+  border-color: #4caf50;
+}
+.envelope.opened {
+  background-image: url('envelope-open.png');
+  opacity: 0.6;
+  pointer-events: none;
+}
+.envelope.locked {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.envelope.red {
+  border-color: crimson;
+}
+
+/* Arşiv Bölümü */
+.archive {
+  text-align: left;
+  margin-top: 20px;
+}
+.archive-item {
+  margin: 5px 0;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal İçeriği */
+.modal-letter {
+  position: relative;
+  background: transparent;
+  padding: 0;
+}
+
+/* Not Kağıdı Konteyneri */
+.note-container {
+  position: relative;
+  width: 80vw;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* Not Kağıdı Görseli */
+.note-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Yazı İçeriği: Küçültülmüş font ve daha iyi hizalama */
+.note-content {
+  position: absolute;
+  top: 14%;       /* çizgilerin üstüne hizalanacak */
+  left: 15%;      /* sol sınır daraltıldı */
+  width: 70%;     /* sağ sınır daraltıldı */
+  height: 72%;    /* alt sınır ayarlandı */
+  overflow-y: auto;
+  z-index: 1;
+  color: #444;
+  line-height: 1.6;
+  font-family: Georgia, serif;
+  font-size: 1.1rem; /* yazı boyutu büyütüldü */
+}
+
+/* Kapatma Butonu */
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s;
+}
+.modal-close:hover {
+  background: rgba(255,255,255,1);
+}
