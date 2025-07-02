@@ -106,9 +106,18 @@ document.addEventListener('DOMContentLoaded', () => {
   modalClose.onclick = () => modalOverlay.style.display = 'none';
   modalOverlay.onclick = e => { if (e.target === modalOverlay) modalOverlay.style.display = 'none'; };
 
-  function openLetter(date,text) {
-    modalDate.textContent = date;
-    modalText.textContent = text;
-    modalOverlay.style.display = 'flex';
+ function openLetter(date, text) {
+  // 📝 Google Analytics event gönderimi
+  if (typeof gtag === 'function') {
+    gtag('event', 'letter_open', {
+      event_category: 'Mektup',
+      event_label: date
+    });
   }
+
+  // Mevcut modal açma kodu
+  modalDate.textContent = date;
+  modalText.textContent = text;
+  modalOverlay.style.display = 'flex';
+}
 });
